@@ -4,15 +4,9 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun countUpAndDown(n: Int): List<Int> {
-    if (n == 0)
-        return listOf(0)
-    else if (n > 0) {
-        val left = (0..n).toList()
-        val right = (n - 1 downTo 0).toList()
-        return left + right
-    }
+    if (n == 0) return listOf(0)
 
-    return listOf()
+    return (0 .. n) + (n - 1 downTo 0)
 }
 
 private class Test {
