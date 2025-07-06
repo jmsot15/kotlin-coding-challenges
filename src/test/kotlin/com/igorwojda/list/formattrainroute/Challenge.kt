@@ -4,7 +4,20 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun formatTrainRoute(stations: List<String>): String {
-    TODO("Add your solution here")
+    var concatString = "Train is calling at "
+    if (stations.size == 1) return concatString + stations[0]
+    else {
+        stations.forEachIndexed { idx, station ->
+            if (idx == stations.lastIndex)
+                concatString += station
+            else if (idx != (stations.lastIndex - 1))
+                concatString += "${station}, "
+            else
+                concatString += "$station and "
+        }
+    }
+
+    return concatString
 }
 
 private class Test {
