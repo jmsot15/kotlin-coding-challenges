@@ -4,20 +4,11 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun formatTrainRoute(stations: List<String>): String {
-    var concatString = "Train is calling at "
-    if (stations.size == 1) return concatString + stations[0]
-    else {
-        stations.forEachIndexed { idx, station ->
-            if (idx == stations.lastIndex)
-                concatString += station
-            else if (idx != (stations.lastIndex - 1))
-                concatString += "${station}, "
-            else
-                concatString += "$station and "
-        }
-    }
+    if (stations.isEmpty()) return ""
+    if (stations.size == 1) return "Train is calling at ${stations[0]}"
 
-    return concatString
+    val allButLast = stations.dropLast(1).joinToString(", ") { it }
+    return "Train is calling at $allButLast and ${stations.last()}"
 }
 
 private class Test {
