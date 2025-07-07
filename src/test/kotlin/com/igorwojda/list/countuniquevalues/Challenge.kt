@@ -4,7 +4,9 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun countUniqueValues(list: List<Int>): Int {
-    TODO("Add your solution here")
+    if (list.isEmpty()) return 0
+
+    return list.distinct().size
 }
 
 private class Test {
