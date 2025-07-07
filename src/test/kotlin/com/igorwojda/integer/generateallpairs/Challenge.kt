@@ -6,10 +6,8 @@ import org.junit.jupiter.api.Test
 private fun getAllPairs(n: Int): List<Pair<Int, Int>> {
     val pairLists = mutableListOf<Pair<Int,Int>>()
     for (i in 0..n) {
-        var idx = 0
-        while (idx <= n) {
-            pairLists.add(i to idx)
-            idx += 1
+        for (j in 0..n) {
+            pairLists.add(i to j)
         }
     }
 
