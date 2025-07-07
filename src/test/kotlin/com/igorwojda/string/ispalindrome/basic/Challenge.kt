@@ -4,7 +4,27 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun isPalindrome(str: String): Boolean {
-    TODO("Add your solution here")
+    var left = 0
+    var right = str.lastIndex
+
+    while (left < right) {
+//        if (!str[left].isLetterOrDigit()) {
+//            left += 1
+//            continue
+//        }
+//        else if (!str[right].isLetterOrDigit()) {
+//            right -= 1
+//            continue
+//        }
+//        else {
+            if (str[left] != str[right])
+                return false
+            left += 1
+            right -= 1
+//        }
+    }
+
+    return true
 }
 
 private class Test {
