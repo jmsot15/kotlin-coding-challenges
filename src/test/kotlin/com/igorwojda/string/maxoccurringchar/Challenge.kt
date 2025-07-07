@@ -4,7 +4,21 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun maxOccurringChar(str: String): Char? {
-    TODO("Add your solution here")
+    if (str.isEmpty()) return null
+
+    var charMap = mutableMapOf<Char, Int>()
+    var maxFreq = 0
+    var mostFreqChar = str[0]
+
+    str.forEach { sChar ->
+        val freq = charMap.getOrPut(sChar) { 0 } + 1
+        if (freq > maxFreq) {
+            maxFreq = freq
+            mostFreqChar = sChar
+        }
+    }
+
+    return mostFreqChar
 }
 
 private class Test {
